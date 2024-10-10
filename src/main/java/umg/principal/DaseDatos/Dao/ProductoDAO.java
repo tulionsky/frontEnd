@@ -51,14 +51,14 @@ public class ProductoDAO {
     }
 
 
-    public List<Producto> obtenerTodosMenores30(String condicion) throws SQLException {
+    public List<Producto> obtenerTodosMenores20(String condicion) throws SQLException {
         List<Producto> productos = new ArrayList<>();
         String sql = "SELECT * FROM tb_producto where "+condicion;
         try (Connection conn = DatabaseConnection.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
             while (rs.next()) {
-                productos.add(new Producto(rs.getInt("id_producto"), rs.getString("descripcion"), rs.getString("origen"), rs.getInt("precio"), rs.getInt("existencia")));
+                productos.add(new Producto(rs.getInt("id_producto"), rs.getString("descripcion"), rs.getString("origen"), rs.getInt("precio"), rs.getInt("cantidad")));
             }
         }
         return productos;
