@@ -37,9 +37,9 @@ public class ProductoDAO {
         return null;
     }
 
-    public List<Producto> obtenerTodos() throws SQLException {
+    public List<Producto> obtenerTodosPorOrden(String condicion) throws SQLException {
         List<Producto> productos = new ArrayList<>();
-        String sql = "SELECT * FROM tb_producto order by origen";
+        String sql = "SELECT * FROM tb_producto order by "+condicion;
         try (Connection conn = DatabaseConnection.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {

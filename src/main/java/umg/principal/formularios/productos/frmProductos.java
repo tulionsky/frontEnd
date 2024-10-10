@@ -125,15 +125,14 @@ public class frmProductos {
         buttonReporte.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                pruebas pr = new pruebas();
                 if(comboBoxReportes.getSelectedItem().toString().equals("Existencia menores a 20 unidades")){
-                    pruebas.GenerarReporteMenor20();
+                    pruebas.GenerarReporte("cantidad < 20");
                 } else if(comboBoxReportes.getSelectedItem().toString().equals("Reporte de china -.-")){
-
+                    pruebas.GenerarReporte("origen =  'China'");
                 } else if(comboBoxReportes.getSelectedItem().toString().equals("Precios mayores a 2000")){
-
+                    pruebas.GenerarReporte("precio > 2000");
                 } else if (comboBoxReportes.getSelectedItem().toString().equals("Agrupado por pais y ordenado de mayor a menor")){
-
+                    pruebas.GenerarReportePorOrden("precio DESC");
                 } else {
                     JOptionPane.showMessageDialog(null, "Elegi una opcion primo ");
                 }

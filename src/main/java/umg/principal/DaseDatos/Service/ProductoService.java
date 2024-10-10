@@ -21,8 +21,8 @@ public class ProductoService {
         return productoDAO.obtenerPorId(id);
     }
 
-    public List<Producto> obtenerTodosLosProductos() throws SQLException {
-        return productoDAO.obtenerTodos();
+    public List<Producto> obtenerTodosPorOrden(String condicion) throws SQLException {
+        return productoDAO.obtenerTodosPorOrden(condicion);
     }
 
     public List<Producto> obtenerTodosMenores20(String condicion) throws SQLException {
